@@ -7,11 +7,13 @@ const path = require('path')
 app.engine('hbs', handlebars.engine({
     extname: 'hbs'
 }));
+
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'src', 'views'));
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', (req, res) => {
-    res.send('Home Page');
+    res.render('home', { layout: false });
 })
 
-app.listen(port, () => console.log(`Server is listening to port ${port}`))
+app.listen(port, () => console.log(`Server is listening to port ${port}`));

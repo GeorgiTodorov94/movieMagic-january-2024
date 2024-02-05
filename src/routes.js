@@ -10,4 +10,6 @@ const movieController = require('./controllers/movieController');
 router.use(movieController);
 router.use(homeController);
 
+
+
 module.exports = router;
